@@ -10,6 +10,8 @@ const LettersPage = () => {
   const [letters, setLetters] = useState(scrambled);
   const [dragIndex, setDragIndex] = useState(null);
   const [touchIndex, setTouchIndex] = useState(null);
+  const [dragPosition, setDragPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
   const [message, setMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -37,7 +39,27 @@ const LettersPage = () => {
   }, []);
 
   /* ---------- DESKTOP DRAG ---------- */
-  const handleDragStart = (index) => setDragIndex(index);
+  const handleDragStart = (e, index) => {
+    setDragIndex(index);
+    setIsDragging(true);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDrag = (e) => {
+    if (e.clientX !== 0 && e.clientY !== 0) {
+      setDragPosition({ x: e.clientX, y: e.clientY });
+    }
+  };
+
+  const handleDragEnd = () => {
+    setDragIndex(null);
+    setIsDragging(false);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
 
   const handleDrop = (index) => {
     if (dragIndex === null) return;
@@ -50,11 +72,22 @@ const LettersPage = () => {
 
     setLetters(newLetters);
     setDragIndex(null);
+    setIsDragging(false);
   };
 
   /* ---------- MOBILE TOUCH DRAG ---------- */
-  const handleTouchStart = (index) => {
+  const handleTouchStart = (e, index) => {
+    e.preventDefault();
     setTouchIndex(index);
+    setIsDragging(true);
+    const touch = e.touches[0];
+    setDragPosition({ x: touch.clientX, y: touch.clientY });
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchIndex === null) return;
+    const touch = e.touches[0];
+    setDragPosition({ x: touch.clientX, y: touch.clientY });
   };
 
   const handleTouchEnd = (e) => {
@@ -80,6 +113,7 @@ const LettersPage = () => {
     }
 
     setTouchIndex(null);
+    setIsDragging(false);
   };
 
   /* ---------- CHECK WORD ---------- */
@@ -123,22 +157,42 @@ const LettersPage = () => {
         <h2>ააწყვე სიტყვა</h2>
 
         <div className="lettersBox">
-          {letters.map((letter, index) => (
-            <div
-              key={index}
-              ref={(el) => (letterRefs.current[index] = el)}
-              className={`letter ${touchIndex === index ? 'dragging' : ''}`}
-              draggable
-              onDragStart={() => handleDragStart(index)}
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={() => handleDrop(index)}
-              onTouchStart={() => handleTouchStart(index)}
-              onTouchEnd={handleTouchEnd}
-            >
-              {letter}
-            </div>
-          ))}
+          {letters.map((letter, index) => {
+            const isBeingDragged = dragIndex === index || touchIndex === index;
+            
+            return (
+              <div
+                key={index}
+                ref={(el) => (letterRefs.current[index] = el)}
+                className={`letter ${isBeingDragged ? 'dragging' : ''}`}
+                draggable
+                onDragStart={(e) => handleDragStart(e, index)}
+                onDrag={handleDrag}
+                onDragEnd={handleDragEnd}
+                onDragOver={handleDragOver}
+                onDrop={() => handleDrop(index)}
+                onTouchStart={(e) => handleTouchStart(e, index)}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                {letter}
+              </div>
+            );
+          })}
         </div>
+
+        {/* Floating dragged letter */}
+        {isDragging && (dragIndex !== null || touchIndex !== null) && (
+          <div
+            className="floating-letter"
+            style={{
+              left: `${dragPosition.x}px`,
+              top: `${dragPosition.y}px`,
+            }}
+          >
+            {letters[dragIndex !== null ? dragIndex : touchIndex]}
+          </div>
+        )}
 
         <div className="button-container">
           <button className="checkBtn" onClick={checkWord}>

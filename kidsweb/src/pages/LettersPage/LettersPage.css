@@ -53,7 +53,13 @@
 
 .letter:active {
   cursor: grabbing;
-  transform: scale(0.95);
+}
+
+.letter.dragging {
+  opacity: 0.6;
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  cursor: grabbing;
 }
 
 .button-container {
@@ -178,7 +184,43 @@
   }
 }
 
+/* Update the .letter.dragging class */
+.letter.dragging {
+  opacity: 0.3;
+  transform: scale(0.95);
+  border: 2px dashed #c7d1e5;
+  background: #f8f9fd;
+  cursor: grabbing;
+}
 
+/* Add the floating letter class */
+.floating-letter {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  background: #ffffff;
+  border: 2px solid #4a63e7;
+  color: #2b3a67;
+  border-radius: 14px;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: transform 0.1s ease;
+}
+
+@media (max-width: 480px) {
+  .floating-letter {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+}
 
 @media (max-width: 360px) {
   .result-message {

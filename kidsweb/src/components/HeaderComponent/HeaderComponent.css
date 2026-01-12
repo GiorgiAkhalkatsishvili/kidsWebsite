@@ -1,5 +1,4 @@
-
-.headerComponent .inner{
+.headerComponent .inner {
   background-color: #4cca4e;
   display: flex;
   justify-content: space-between;
@@ -7,47 +6,45 @@
   align-items: center;
 }
 
-.headerComponent .inner .main-image{
+.headerComponent .inner .main-image {
   display: flex;
   align-items: center;
   gap: 2px;
 }
 
-.headerComponent .inner a{
-text-decoration: none;
+.headerComponent .inner a {
+  text-decoration: none;
 }
 
-.headerComponent .inner .main-image img{
-width: 80px;
+.headerComponent .inner .main-image img {
+  width: 80px;
 }
 
-.headerComponent .inner .main-image h3{
-  /* color: rgb(235, 235, 12); */
+.headerComponent .inner .main-image h3 {
   color: #fff;
   font-size: 25px;
   width: 80px;
   line-height: 25px;
 }
 
-.headerComponent .inner .nav-links ul{
-display: flex;
-gap: 18px;
+.headerComponent .inner .nav-links ul {
+  display: flex;
+  gap: 18px;
 }
 
-.headerComponent .inner .nav-links ul li{
+.headerComponent .inner .nav-links ul li {
   list-style-type: none;
-  /* color: rgb(235, 235, 12); */
   color: #fff;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
 }
 
-.headerComponent .inner .nav-links ul a{
+.headerComponent .inner .nav-links ul a {
   text-decoration: none;
 }
 
-.headerComponent .inner .nav-btn button{
+.headerComponent .inner .nav-btn button {
   padding: 12px 20px;
   border-radius: 12px;
   font-size: 19px;
@@ -58,7 +55,7 @@ gap: 18px;
   transition: .4s ease;
 }
 
-.headerComponent .inner .nav-btn button:hover{
+.headerComponent .inner .nav-btn button:hover {
   background-color: #cf1143;
 }
 
@@ -74,8 +71,8 @@ gap: 18px;
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   background: #f5f5f5;
-    backdrop-filter: blur(12px);
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .headerComponent .inner .menu-btn svg {
@@ -83,11 +80,11 @@ gap: 18px;
   cursor: pointer;
 }
 
-.headerComponent .inner .menu-btn{
+.headerComponent .inner .menu-btn {
   display: none;
 }
 
-.headerComponent .inner .responsive-menu .closing-svg{
+.headerComponent .inner .responsive-menu .closing-svg {
   width: 25px;
   position: absolute;
   right: 20px;
@@ -95,36 +92,42 @@ gap: 18px;
   cursor: pointer;
 }
 
-.headerComponent .inner .sidebar-search{
+.headerComponent .inner .sidebar-search {
   padding-top: 70px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
-.headerComponent .inner .sidebar-search .search-svg{
-    height: 35px;
-    cursor: pointer;
+.headerComponent .inner .sidebar-search .search-svg {
+  cursor: pointer;
 }
 
-.headerComponent .inner .sidebar-search input{
+.headerComponent .inner .sidebar-search input {
   padding: 8px;
   border-radius: 8px 0 0 8px;
-  border: solid 1px rgb(195, 190, 190);
   outline: none;
   border-right: none;
-    background-color: #f0f0f0;
-      border: 1px solid #4CAF50;
+  background-color: #f0f0f0;
+  border: 1px solid #4CAF50;
+  height: 40px;
+  box-sizing: border-box;
 }
 
-.headerComponent .inner .sidebar-search svg{
-  border: solid 1px grey;
+.headerComponent .inner .sidebar-search svg {
+  border: solid 1px #4CAF50;
   padding: 8px;
   border-radius: 0 8px 8px 0;
   background-color: #4cca4e;
   border-left: none;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-.headerComponent .inner .sidebar-links ul{
+.headerComponent .inner .sidebar-links ul {
   display: flex;
   flex-direction: column;
   color: #000;
@@ -134,17 +137,16 @@ gap: 18px;
   padding-top: 50px;
 }
 
-.headerComponent .inner .sidebar-links ul li{
-list-style-type: none;
-font-size: 20px;
-cursor: pointer;
+.headerComponent .inner .sidebar-links ul li {
+  list-style-type: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.headerComponent .inner .sidebar-links ul a{
-text-decoration: none;
-color: #000;
+.headerComponent .inner .sidebar-links ul a {
+  text-decoration: none;
+  color: #000;
 }
-
 
 .sidebar-overlay {
   position: fixed;
@@ -162,15 +164,15 @@ color: #000;
 }
 
 @media only screen and (max-width: 865px) {
-.headerComponent .inner .menu-btn {
+  .headerComponent .inner .menu-btn {
     display: flex;
   }
 
-.headerComponent .inner .nav-links{
-  display: none;
-}
+  .headerComponent .inner .nav-links {
+    display: none;
+  }
 
-.headerComponent .inner .nav-btn{
-  display: none;
-}
+  .headerComponent .inner .nav-btn {
+    display: none;
+  }
 }

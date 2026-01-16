@@ -1,178 +1,78 @@
-.headerComponent .inner {
-  background-color: #4cca4e;
+.headerComponent {
+  width: 100%;
+  max-width: 1100px;
+    width: 100%;
+margin: auto;
+margin-top: 20px;
+  background: white;
+  border-radius: 50px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 15px 35px;
   align-items: center;
 }
 
-.headerComponent .inner .main-image {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.headerComponent .inner a {
+/* Link wrapper (no visual styles) */
+.logo-link {
   text-decoration: none;
 }
 
-.headerComponent .inner .main-image img {
-  width: 80px;
-}
-
-.headerComponent .inner .main-image h3 {
-  color: #fff;
-  font-size: 25px;
-  width: 80px;
-  line-height: 25px;
-}
-
-.headerComponent .inner .nav-links ul {
-  display: flex;
-  gap: 18px;
-}
-
-.headerComponent .inner .nav-links ul li {
-  list-style-type: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.headerComponent .inner .nav-links ul a {
-  text-decoration: none;
-}
-
-.headerComponent .inner .nav-btn button {
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-size: 19px;
-  background-color: #FC0D4E;
-  color: #fff;
-  border: solid 1px #d81046;
-  cursor: pointer;
-  transition: .4s ease;
-}
-
-.headerComponent .inner .nav-btn button:hover {
-  background-color: #cf1143;
-}
-
-.headerComponent .inner .responsive-menu {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  background-color: #fff;
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
-  z-index: 999;
-  background: #f5f5f5;
-  backdrop-filter: blur(12px);
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.headerComponent .inner .menu-btn svg {
-  width: 37px;
-  cursor: pointer;
-}
-
-.headerComponent .inner .menu-btn {
-  display: none;
-}
-
-.headerComponent .inner .responsive-menu .closing-svg {
-  width: 25px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  cursor: pointer;
-}
-
-.headerComponent .inner .sidebar-search {
-  padding-top: 70px;
-  display: flex;
-  align-items: stretch;
-}
-
-.headerComponent .inner .sidebar-search .search-svg {
-  cursor: pointer;
-}
-
-.headerComponent .inner .sidebar-search input {
-  padding: 8px;
-  border-radius: 8px 0 0 8px;
-  outline: none;
-  border-right: none;
-  background-color: #f0f0f0;
-  border: 1px solid #4CAF50;
-  height: 40px;
-  box-sizing: border-box;
-}
-
-.headerComponent .inner .sidebar-search svg {
-  border: solid 1px #4CAF50;
-  padding: 8px;
-  border-radius: 0 8px 8px 0;
-  background-color: #4cca4e;
-  border-left: none;
-  height: 40px;
-  width: 40px;
+/* Actual logo text */
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ff6b4a;
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+  gap: 10px;
+  margin: 0;
+  /* important for h1 */
 }
 
-.headerComponent .inner .sidebar-links ul {
+.nav-links {
   display: flex;
-  flex-direction: column;
-  color: #000;
-  gap: 17px;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
-  padding-top: 50px;
 }
 
-.headerComponent .inner .sidebar-links ul li {
-  list-style-type: none;
-  font-size: 20px;
+.nav-btn {
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: bold;
   cursor: pointer;
+  color: #555;
+  background: transparent;
+  transition: all 0.3s ease;
+  font-size: 15px;
 }
 
-.headerComponent .inner .sidebar-links ul a {
-  text-decoration: none;
+.nav-btn:hover {
+  background: #f0f0f0;
   color: #000;
 }
 
-.sidebar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: opacity 0.3s ease;
-  z-index: 998;
+.nav-btn.active {
+  background: #ffb100;
+  color: white;
 }
 
-.responsive-menu {
-  z-index: 999;
+.nav-btn.profile {
+  background: #4cc9f0;
+  color: white;
+  margin-left: 10px;
+  box-shadow: 0 4px 10px rgba(76, 201, 240, 0.3);
 }
 
-@media only screen and (max-width: 865px) {
-  .headerComponent .inner .menu-btn {
-    display: flex;
-  }
-
-  .headerComponent .inner .nav-links {
-    display: none;
-  }
-
-  .headerComponent .inner .nav-btn {
-    display: none;
-  }
+.nav-btn.profile:hover {
+  background: #3fb1d4;
+  transform: scale(1.05);
 }

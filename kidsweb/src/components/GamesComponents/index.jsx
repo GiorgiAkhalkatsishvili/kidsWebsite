@@ -1,35 +1,39 @@
-import React from 'react'
+import React from 'react';
 import './GamesComponents.css';
-import numbersImg from '../../assets/numbers.png';
-import colorsImg from '../../assets/colors.png';
-import mathImg from '../../assets/math.png';
-import abcImg from '../../assets/abc.png';
-import { Link } from 'react-router-dom';
 
-
-const GamesComponents = () => {
+const CardsComponent = () => {
   return (
-    <div className='gamesComponents'>
-      <div className="inner">
-        <div className="main-games">
-          <Link to='/letters'>
-            <div className="gameOne">
-            <img src={abcImg} alt="" />
-            </div>
-          </Link>
-          <div className="gameOne">
-            <img src={colorsImg} alt="" />
-          </div>
-          <div className="gameOne">
-            <img src={numbersImg} alt="" />
-          </div>
-          <div className="gameOne">
-            <img src={mathImg} alt="" />
-          </div>
+    <div className="GamesComponents">
+      <div className="welcome-title">მოგესალმებით, პატარებო!</div>
+
+      <div className="card-grid">
+        <div className="card card-1">
+          <div className="icon-placeholder">ABC</div>
+          <div className="card-title">სასწავლო ბლოკები</div>
+        </div>
+
+        <div className="card card-2">
+          <div className="icon-placeholder">🧩</div>
+          <div className="card-title">თანამშრომლობა</div>
+        </div>
+
+        <div className="card card-3">
+          <div className="icon-placeholder">🎨</div>
+          <div className="card-title">შემოქმედება</div>
+        </div>
+
+        <div className="card card-4">
+          <div className="icon-placeholder">🎮</div>
+          <div className="card-title">გართობა</div>
+        </div>
+
+        <div className="card card-5">
+          <div className="icon-placeholder">📖</div>
+          <div className="card-title">საკითხავი</div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GamesComponents
+export default CardsComponent;

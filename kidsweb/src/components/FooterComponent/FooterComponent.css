@@ -1,0 +1,22 @@
+
+.footerComponent{
+  margin-top: 100px;
+  border: solid 1px #fff;
+  background-color: #fff;
+padding: 50px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.footerComponent .inner{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.footerComponent .contact-info p{
+  font-size: 20px;
+}
+
+.footerComponent .copyrights p{
+  font-size: 20px;
+}
